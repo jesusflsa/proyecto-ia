@@ -7,6 +7,11 @@ import javax.swing.JDialog;
 public class DialogoAyuda extends JDialog {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {

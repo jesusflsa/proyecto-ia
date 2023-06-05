@@ -13,6 +13,10 @@ import javax.swing.JTextArea;
 import javax.swing.UIManager;
 
 public class DialogoVender extends JDialog {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel lblModelo;
 	private JLabel lblPrecio;
 	private JTextField txtPrecio;

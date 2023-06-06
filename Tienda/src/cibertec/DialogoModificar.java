@@ -142,7 +142,7 @@ public class DialogoModificar extends JDialog implements ActionListener {
 	}
 
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
-
+		this.dispose();
 	}
 
 	/**
@@ -285,156 +285,170 @@ public class DialogoModificar extends JDialog implements ActionListener {
 		String cad = "";
 
 		mar = calcularModelo();
-		
+
 		// Si el casillero esta vacio, se remplazara con un 0
-		
-		if (txtPrecio.getText().length() == 0) pre = 0;
-		else pre = Double.parseDouble(txtPrecio.getText());
-		
-		if (txtAncho.getText().length() == 0) anc = 0;
-		else anc = Double.parseDouble(txtAncho.getText());
-		
-		if (txtLargo.getText().length() == 0) lar = 0;
-		else lar = Double.parseDouble(txtLargo.getText());
-		
-		if (txtEspesor.getText().length() == 0) esp = 0;
-		else esp = Double.parseDouble(txtEspesor.getText());
-		
-		if (txtCanOptima.getText().length() == 0) can = 0;
-		else can = Integer.parseInt(txtCanOptima.getText());
 
-		if (calcularPrecio(mar) != pre) {
+		if (txtPrecio.getText().length() == 0)
+			pre = 0;
+		else
+			pre = Double.parseDouble(txtPrecio.getText());
 
-			switch (mar) {
-			case 0:
-				cad += mensajePrecio(Tienda.precio0, pre);
-				Tienda.precio0 = pre;
-				break;
-			case 1:
-				cad += mensajePrecio(Tienda.precio1, pre);
-				Tienda.precio1 = pre;
-				break;
-			case 2:
-				cad += mensajePrecio(Tienda.precio2, pre);
-				Tienda.precio2 = pre;
-				break;
-			case 3:
-				cad += mensajePrecio(Tienda.precio3, pre);
-				Tienda.precio3 = pre;
-				break;
-			default:
-				cad += mensajePrecio(Tienda.precio4, pre);
-				Tienda.precio4 = pre;
-				break;
+		if (txtAncho.getText().length() == 0)
+			anc = 0;
+		else
+			anc = Double.parseDouble(txtAncho.getText());
+
+		if (txtLargo.getText().length() == 0)
+			lar = 0;
+		else
+			lar = Double.parseDouble(txtLargo.getText());
+
+		if (txtEspesor.getText().length() == 0)
+			esp = 0;
+		else
+			esp = Double.parseDouble(txtEspesor.getText());
+
+		if (txtCanOptima.getText().length() == 0)
+			can = 0;
+		else
+			can = Integer.parseInt(txtCanOptima.getText());
+
+		if (pre < 0 || anc < 0 || lar < 0 || esp < 0 || can < 0) {
+			JOptionPane.showMessageDialog(this, "Indica un valor mayor a 0");
+		} else {
+			if (calcularPrecio(mar) != pre) {
+
+				switch (mar) {
+				case 0:
+					cad += mensajePrecio(Tienda.precio0, pre);
+					Tienda.precio0 = pre;
+					break;
+				case 1:
+					cad += mensajePrecio(Tienda.precio1, pre);
+					Tienda.precio1 = pre;
+					break;
+				case 2:
+					cad += mensajePrecio(Tienda.precio2, pre);
+					Tienda.precio2 = pre;
+					break;
+				case 3:
+					cad += mensajePrecio(Tienda.precio3, pre);
+					Tienda.precio3 = pre;
+					break;
+				default:
+					cad += mensajePrecio(Tienda.precio4, pre);
+					Tienda.precio4 = pre;
+					break;
+				}
+
 			}
 
-		}
+			if (calcularAncho(mar) != anc) {
 
-		if (calcularAncho(mar) != anc) {
-
-			switch (mar) {
-			case 0:
-				cad += mensajeAncho(Tienda.ancho0, anc);
-				Tienda.ancho0 = anc;
-				break;
-			case 1:
-				cad += mensajeAncho(Tienda.ancho1, anc);
-				Tienda.ancho1 = anc;
-				break;
-			case 2:
-				cad += mensajeAncho(Tienda.ancho2, anc);
-				Tienda.ancho2 = anc;
-				break;
-			case 3:
-				cad += mensajeAncho(Tienda.ancho3, anc);
-				Tienda.ancho3 = anc;
-				break;
-			default:
-				cad += mensajeAncho(Tienda.ancho4, anc);
-				Tienda.ancho4 = anc;
-				break;
+				switch (mar) {
+				case 0:
+					cad += mensajeAncho(Tienda.ancho0, anc);
+					Tienda.ancho0 = anc;
+					break;
+				case 1:
+					cad += mensajeAncho(Tienda.ancho1, anc);
+					Tienda.ancho1 = anc;
+					break;
+				case 2:
+					cad += mensajeAncho(Tienda.ancho2, anc);
+					Tienda.ancho2 = anc;
+					break;
+				case 3:
+					cad += mensajeAncho(Tienda.ancho3, anc);
+					Tienda.ancho3 = anc;
+					break;
+				default:
+					cad += mensajeAncho(Tienda.ancho4, anc);
+					Tienda.ancho4 = anc;
+					break;
+				}
 			}
-		}
 
-		if (calcularLargo(mar) != lar) {
+			if (calcularLargo(mar) != lar) {
 
-			switch (mar) {
-			case 0:
-				cad += mensajeLargo(Tienda.largo0, lar);
-				Tienda.largo0 = lar;
-				break;
-			case 1:
-				cad += mensajeLargo(Tienda.largo1, lar);
-				Tienda.largo1 = lar;
-				break;
-			case 2:
-				cad += mensajeLargo(Tienda.largo2, lar);
-				Tienda.largo2 = lar;
-				break;
-			case 3:
-				cad += mensajeLargo(Tienda.largo3, lar);
-				Tienda.largo3 = lar;
-				break;
-			default:
-				cad += mensajeLargo(Tienda.largo4, lar);
-				Tienda.largo4 = lar;
-				break;
+				switch (mar) {
+				case 0:
+					cad += mensajeLargo(Tienda.largo0, lar);
+					Tienda.largo0 = lar;
+					break;
+				case 1:
+					cad += mensajeLargo(Tienda.largo1, lar);
+					Tienda.largo1 = lar;
+					break;
+				case 2:
+					cad += mensajeLargo(Tienda.largo2, lar);
+					Tienda.largo2 = lar;
+					break;
+				case 3:
+					cad += mensajeLargo(Tienda.largo3, lar);
+					Tienda.largo3 = lar;
+					break;
+				default:
+					cad += mensajeLargo(Tienda.largo4, lar);
+					Tienda.largo4 = lar;
+					break;
+				}
 			}
-		}
 
-		if (calcularEspesor(mar) != esp) {
+			if (calcularEspesor(mar) != esp) {
 
-			switch (mar) {
-			case 0:
-				cad += mensajeEspesor(Tienda.espesor0, esp);
-				Tienda.espesor0 = esp;
-				break;
-			case 1:
-				cad += mensajeEspesor(Tienda.espesor1, esp);
-				Tienda.espesor1 = esp;
-				break;
-			case 2:
-				cad += mensajeEspesor(Tienda.espesor2, esp);
-				Tienda.espesor2 = esp;
-				break;
-			case 3:
-				cad += mensajeEspesor(Tienda.espesor3, esp);
-				Tienda.espesor3 = esp;
-				break;
-			default:
-				cad += mensajeEspesor(Tienda.espesor4, esp);
-				Tienda.espesor4 = esp;
-				break;
+				switch (mar) {
+				case 0:
+					cad += mensajeEspesor(Tienda.espesor0, esp);
+					Tienda.espesor0 = esp;
+					break;
+				case 1:
+					cad += mensajeEspesor(Tienda.espesor1, esp);
+					Tienda.espesor1 = esp;
+					break;
+				case 2:
+					cad += mensajeEspesor(Tienda.espesor2, esp);
+					Tienda.espesor2 = esp;
+					break;
+				case 3:
+					cad += mensajeEspesor(Tienda.espesor3, esp);
+					Tienda.espesor3 = esp;
+					break;
+				default:
+					cad += mensajeEspesor(Tienda.espesor4, esp);
+					Tienda.espesor4 = esp;
+					break;
+				}
 			}
-		}
 
-		if (calcularCantidadOptima(mar) != can) {
+			if (calcularCantidadOptima(mar) != can) {
 
-			switch (mar) {
-			case 0:
-				cad += mensajeCantidad(Tienda.cantidadOptima0, can);
-				Tienda.cantidadOptima0 = can;
-				break;
-			case 1:
-				cad += mensajeCantidad(Tienda.cantidadOptima1, can);
-				Tienda.cantidadOptima1 = can;
-				break;
-			case 2:
-				cad += mensajeCantidad(Tienda.cantidadOptima2, can);
-				Tienda.cantidadOptima2 = can;
-				break;
-			case 3:
-				cad += mensajeCantidad(Tienda.cantidadOptima3, can);
-				Tienda.cantidadOptima3 = can;
-				break;
-			default:
-				cad += mensajeCantidad(Tienda.cantidadOptima4, can);
-				Tienda.cantidadOptima4 = can;
-				break;
+				switch (mar) {
+				case 0:
+					cad += mensajeCantidad(Tienda.cantidadOptima0, can);
+					Tienda.cantidadOptima0 = can;
+					break;
+				case 1:
+					cad += mensajeCantidad(Tienda.cantidadOptima1, can);
+					Tienda.cantidadOptima1 = can;
+					break;
+				case 2:
+					cad += mensajeCantidad(Tienda.cantidadOptima2, can);
+					Tienda.cantidadOptima2 = can;
+					break;
+				case 3:
+					cad += mensajeCantidad(Tienda.cantidadOptima3, can);
+					Tienda.cantidadOptima3 = can;
+					break;
+				default:
+					cad += mensajeCantidad(Tienda.cantidadOptima4, can);
+					Tienda.cantidadOptima4 = can;
+					break;
+				}
 			}
+			if (cad != "")
+				mostrarResultados(mensajeModelo(calcularNombre(mar)) + cad);
 		}
-		if (cad != "")
-			mostrarResultados(mensajeModelo(calcularNombre(mar)) + cad);
 	}
 
 	String mensajeModelo(String mod) {
@@ -462,7 +476,7 @@ public class DialogoModificar extends JDialog implements ActionListener {
 	}
 
 	void mostrarResultados(String cad) {
-		JOptionPane.showMessageDialog(null, cad);
+		JOptionPane.showMessageDialog(this, cad);
 	}
 
 }

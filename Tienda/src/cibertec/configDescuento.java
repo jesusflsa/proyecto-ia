@@ -3,8 +3,8 @@ package cibertec;
 import java.awt.EventQueue;
 
 import javax.swing.JDialog;
-import java.awt.Window.Type;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -12,6 +12,10 @@ import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
 
 public class configDescuento extends JDialog implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
@@ -56,12 +60,6 @@ public class configDescuento extends JDialog implements ActionListener {
 	/**
 	 * Create the dialog.
 	 */
-	//variables configuracion descuento
-	public static double descuento1 = 5;
-	public static double descuento2 = 7.5;
-	public static double descuento3 = 10;
-	public static double descuento4 = 12.5;
-	public static double descuento5 = 15;
 	public configDescuento() {
 		setModal(true);
 		setTitle("Configuracion de porcentajes de descuento");
@@ -89,31 +87,31 @@ public class configDescuento extends JDialog implements ActionListener {
 		getContentPane().add(lblNewLabel_4);
 		
 		textDesc1 = new JTextField();
-		textDesc1.setText(descuento1 + "" );
+		textDesc1.setText(Tienda.porcentaje1 + "" );
 		textDesc1.setBounds(150, 8, 86, 20);
 		getContentPane().add(textDesc1);
 		textDesc1.setColumns(10);
 		
 		textDesc2 = new JTextField();
-		textDesc2.setText(descuento2 + "" );
+		textDesc2.setText(Tienda.porcentaje2 + "" );
 		textDesc2.setBounds(150, 33, 86, 20);
 		getContentPane().add(textDesc2);
 		textDesc2.setColumns(10);
 		
 		textDesc3 = new JTextField();
-		textDesc3.setText(descuento3 + "" );
+		textDesc3.setText(Tienda.porcentaje3 + "" );
 		textDesc3.setBounds(150, 58, 86, 20);
 		getContentPane().add(textDesc3);
 		textDesc3.setColumns(10);
 		
 		textDesc4 = new JTextField();
-		textDesc4.setText(descuento4 + "" );
+		textDesc4.setText(Tienda.porcentaje4 + "" );
 		textDesc4.setBounds(150, 83, 86, 20);
 		getContentPane().add(textDesc4);
 		textDesc4.setColumns(10);
 		
 		textDesc5 = new JTextField();
-		textDesc5.setText(descuento5 + "" );
+		textDesc5.setText(Tienda.porcentaje5 + "" );
 		textDesc5.setBounds(150, 108, 86, 20);
 		getContentPane().add(textDesc5);
 		textDesc5.setColumns(10);
@@ -142,18 +140,48 @@ public class configDescuento extends JDialog implements ActionListener {
 		btnAceptar.addActionListener(this);
 		btnAceptar.setBounds(323, 7, 89, 23);
 		getContentPane().add(btnAceptar);
-		
 		btnCancelar = new JButton("cancelar");
+		btnCancelar.addActionListener(this);
 		btnCancelar.setBounds(323, 32, 89, 23);
 		getContentPane().add(btnCancelar);
 
 	}
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnAceptar) {
-			actionPerformedBtnNewButton(e);
+			actionPerformedBtnProcesar(e);
+		}
+		
+		if (e.getSource() == btnCancelar) {
+			actionPerformedBtnCerrar(e);
 		}
 	}
-	protected void actionPerformedBtnNewButton(ActionEvent e) {
+	protected void actionPerformedBtnCerrar(ActionEvent e) {
+		this.dispose();
+	}
+	protected void actionPerformedBtnProcesar(ActionEvent e) {
+		cambiarValor();
+	}
+	protected void cambiarValor() {
+		String por1, por2, por3, por4, por5;
+		por1 =  textDesc1.getText();
+		por2 =	textDesc2.getText();
+		por3 = 	textDesc3.getText();
+		por4 = 	textDesc4.getText();
+		por5 =	textDesc5.getText();
+		System.out.print(textDesc1.getText());
+		if(por1.length() == 0 || por2.length() == 0 || por3.length() == 0|| por4.length() == 0|| por5.length() == 0){
+			JOptionPane.showMessageDialog(this, "Rellene el espacio");
+		}else{
+			Tienda.porcentaje1 = Double.parseDouble(por1);
+			Tienda.porcentaje2 = Double.parseDouble(por2);
+			Tienda.porcentaje3 = Double.parseDouble(por3);
+			Tienda.porcentaje4 = Double.parseDouble(por4);
+			Tienda.porcentaje5 = Double.parseDouble(por5);
+			if(Tienda.porcentaje1 < 0 || Tienda.porcentaje2 < 0 ||Tienda.porcentaje3 < 0 ||Tienda.porcentaje4 < 0 ||Tienda.porcentaje5 < 0){
+				JOptionPane.showMessageDialog(this, "Rellene con un numero mayor a 0");
+			}else{
+				this.dispose();	
+			}
+		}
 	}
 }
-

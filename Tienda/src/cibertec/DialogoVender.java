@@ -11,8 +11,10 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.UIManager;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class DialogoVender extends JDialog {
+public class DialogoVender extends JDialog implements ActionListener {
 	/**
 	 * 
 	 */
@@ -43,8 +45,7 @@ public class DialogoVender extends JDialog {
 					DialogoVender dialog = new DialogoVender();
 					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 					dialog.setVisible(true);
-				}
-				catch (Exception e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
@@ -59,49 +60,78 @@ public class DialogoVender extends JDialog {
 		setTitle("Vender");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
-		
+
 		lblModelo = new JLabel("Modelo");
 		lblModelo.setBounds(15, 15, 50, 14);
 		getContentPane().add(lblModelo);
-		
+
 		lblPrecio = new JLabel("Precio (S/)");
 		lblPrecio.setBounds(15, 40, 50, 14);
 		getContentPane().add(lblPrecio);
-		
+
 		txtPrecio = new JTextField();
 		txtPrecio.setEditable(false);
 		txtPrecio.setColumns(10);
 		txtPrecio.setBounds(75, 37, 200, 20);
 		getContentPane().add(txtPrecio);
-		
+
 		lblCantidad = new JLabel("Cantidad");
 		lblCantidad.setBounds(15, 65, 50, 14);
 		getContentPane().add(lblCantidad);
-		
+
 		txtCantidad = new JTextField();
 		txtCantidad.setBounds(75, 62, 200, 20);
 		getContentPane().add(txtCantidad);
 		txtCantidad.setColumns(10);
-		
+
 		cboModelo = new JComboBox<String>();
-		cboModelo.setModel(new DefaultComboBoxModel<String>(new String[] {"Ladrillo King Kong 18 Huecos", "Ladrillo King Kong Macizo", "Ladrillo Pandereta Acanalada", "Ladrillo Patelero", "Ladrillo Techo Hueco"}));
+		cboModelo.addActionListener(this);
+		cboModelo.setModel(new DefaultComboBoxModel<String>(
+				new String[] { "Ladrillo King Kong 18 Huecos", "Ladrillo King Kong Macizo",
+						"Ladrillo Pandereta Acanalada", "Ladrillo Patelero", "Ladrillo Techo Hueco" }));
 		cboModelo.setBounds(75, 11, 200, 22);
 		getContentPane().add(cboModelo);
-		
+
 		btnVender = new JButton("Vender");
+		btnVender.addActionListener(this);
 		btnVender.setBounds(335, 11, 89, 23);
 		getContentPane().add(btnVender);
-		
+
 		btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(this);
 		btnCerrar.setBounds(335, 36, 89, 23);
 		getContentPane().add(btnCerrar);
-		
+
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 90, 414, 160);
 		getContentPane().add(scrollPane);
-		
+
 		txtS = new JTextArea();
 		scrollPane.setViewportView(txtS);
+
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == cboModelo) {
+			actionPerformedCboModelo(e);
+		}
+		if (e.getSource() == btnVender) {
+			actionPerformedBtnVender(e);
+		}
+		if (e.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(e);
+		}
+	}
+
+	protected void actionPerformedBtnCerrar(ActionEvent e) {
+		this.dispose();
+	}
+	
+	protected void actionPerformedCboModelo(ActionEvent e) {
+		
+	}
+
+	protected void actionPerformedBtnVender(ActionEvent e) {
 
 	}
 

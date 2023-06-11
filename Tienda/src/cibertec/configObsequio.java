@@ -7,10 +7,15 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 
 public class configObsequio extends JDialog implements ActionListener { 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
@@ -54,14 +59,7 @@ public class configObsequio extends JDialog implements ActionListener {
 	/**
 	 * Create the dialog.
 	 */
-	// Cantidades a obsequiar
-	public static String tipoObsequio = "Badilejo";
-	public static int obsequioCantidad1 = 1;
-	public static int obsequioCantidad2 = 3;
-	public static int obsequioCantidad3 = 5;
-	public static int obsequioCantidad4 = 7;
-	public static int obsequioCantidad5 = 9;
-
+	
 	public configObsequio() {
 		setModal(true);
 		setTitle("Configurar obsequio");
@@ -93,37 +91,37 @@ public class configObsequio extends JDialog implements ActionListener {
 		getContentPane().add(lblNewLabel_5);
 		
 		textObs0 = new JTextField();
-		textObs0.setText("Badilejo");
+		textObs0.setText(Tienda.tipoObsequio);
 		textObs0.setBounds(150, 8, 86, 20);
 		getContentPane().add(textObs0);
 		textObs0.setColumns(10);
 
 		textObs1 = new JTextField();
-		textObs1.setText(obsequioCantidad1 + "" );
+		textObs1.setText(Tienda.obsequioCantidad1 + "" );
 		textObs1.setBounds(150, 33, 86, 20);
 		getContentPane().add(textObs1);
 		textObs1.setColumns(10);
 		
 		textObs2 = new JTextField();
-		textObs2.setText(obsequioCantidad2 + "" );
+		textObs2.setText(Tienda.obsequioCantidad2 + "" );
 		textObs2.setBounds(150, 58, 86, 20);
 		getContentPane().add(textObs2);
 		textObs2.setColumns(10);
 		
 		textObs3 = new JTextField();
-		textObs3.setText(obsequioCantidad3 + "" );
+		textObs3.setText(Tienda.obsequioCantidad3 + "" );
 		textObs3.setBounds(150, 83, 86, 20);
 		getContentPane().add(textObs3);
 		textObs3.setColumns(10);
 		
 		textObs4 = new JTextField();
-		textObs4.setText(obsequioCantidad4 + "" );
+		textObs4.setText(Tienda.obsequioCantidad4 + "" );
 		textObs4.setBounds(150, 108, 86, 20);
 		getContentPane().add(textObs4);
 		textObs4.setColumns(10);
 		
 		textObs5 = new JTextField();
-		textObs5.setText(obsequioCantidad5 + "" );
+		textObs5.setText(Tienda.obsequioCantidad5 + "" );
 		textObs5.setBounds(150, 133, 86, 20);
 		getContentPane().add(textObs5);
 		textObs5.setColumns(10);
@@ -140,10 +138,40 @@ public class configObsequio extends JDialog implements ActionListener {
 	}
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnAceptar) {
-			actionPerformedBtnNewButton(e);
+			actionPerformedBtnProcesar(e);
+		}
+		
+		if (e.getSource() == btnCancelar) {
+			actionPerformedBtnCerrar(e);
 		}
 	}
-	protected void actionPerformedBtnNewButton(ActionEvent e) {
+	protected void actionPerformedBtnCerrar(ActionEvent e) {
+		this.dispose();
+	}
+	protected void actionPerformedBtnProcesar(ActionEvent e) {
+		cambiarValor();
+	}
+	protected void cambiarValor() {
+		String  por1, por2, por3, por4, por5;
+		por1 =  textObs1.getText();
+		por2 =	textObs2.getText();
+		por3 = 	textObs3.getText();
+		por4 = 	textObs4.getText();
+		por5 =	textObs5.getText();
+		System.out.print(textObs1.getText());
+		if(por1.length() == 0 || por2.length() == 0 || por3.length() == 0|| por4.length() == 0|| por5.length() == 0){
+			JOptionPane.showMessageDialog(this, "Rellene el espacio");
+		}else{
+			Tienda.obsequioCantidad1 = Integer.parseInt(por1);
+			Tienda.obsequioCantidad2= Integer.parseInt(por2);
+			Tienda.obsequioCantidad3 = Integer.parseInt(por3);
+			Tienda.obsequioCantidad4 = Integer.parseInt(por4);
+			Tienda.obsequioCantidad5 = Integer.parseInt(por5);
+			if(Tienda.obsequioCantidad1 < 0 || Tienda.obsequioCantidad2 < 0 ||Tienda.obsequioCantidad3 < 0 ||Tienda.obsequioCantidad4 < 0 ||Tienda.obsequioCantidad5 < 0){
+				JOptionPane.showMessageDialog(this, "Rellene con un numero mayor a 0");
+			}else{
+				this.dispose();	
+			}
+		}
 	}
 }
-

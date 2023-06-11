@@ -159,27 +159,32 @@ public class configDescuento extends JDialog implements ActionListener {
 		this.dispose();
 	}
 	protected void actionPerformedBtnProcesar(ActionEvent e) {
-		cambiarValor();
+		cambiarValor();	
 	}
 	protected void cambiarValor() {
-		String por1, por2, por3, por4, por5;
-		por1 =  textDesc1.getText();
-		por2 =	textDesc2.getText();
-		por3 = 	textDesc3.getText();
-		por4 = 	textDesc4.getText();
-		por5 =	textDesc5.getText();
-		System.out.print(textDesc1.getText());
-		if(por1.length() == 0 || por2.length() == 0 || por3.length() == 0|| por4.length() == 0|| por5.length() == 0){
+		double por1, por2, por3, por4, por5;
+		String val1, val2, val3, val4, val5;
+		val1 = textDesc1.getText();
+		val2 = textDesc2.getText();
+		val3 = textDesc3.getText();
+		val4 = textDesc4.getText();
+		val5 = textDesc5.getText();
+		if(val1.length() == 0 || val2.length() == 0 || val3.length() == 0|| val4.length() == 0|| val5.length() == 0){
 			JOptionPane.showMessageDialog(this, "Rellene el espacio");
-		}else{
-			Tienda.porcentaje1 = Double.parseDouble(por1);
-			Tienda.porcentaje2 = Double.parseDouble(por2);
-			Tienda.porcentaje3 = Double.parseDouble(por3);
-			Tienda.porcentaje4 = Double.parseDouble(por4);
-			Tienda.porcentaje5 = Double.parseDouble(por5);
-			if(Tienda.porcentaje1 < 0 || Tienda.porcentaje2 < 0 ||Tienda.porcentaje3 < 0 ||Tienda.porcentaje4 < 0 ||Tienda.porcentaje5 < 0){
+		}else {
+			por1 =  Double.parseDouble(val1);
+			por2 =	Double.parseDouble(val2);
+			por3 = 	Double.parseDouble(val3);
+			por4 = 	Double.parseDouble(val4);
+			por5 =	Double.parseDouble(val5);
+			if(por1 < 0 || por2 < 0 || por3 < 0 || por4 < 0 || por5 < 0){
 				JOptionPane.showMessageDialog(this, "Rellene con un numero mayor a 0");
 			}else{
+				Tienda.porcentaje1 = por1;
+				Tienda.porcentaje2 = por2;
+				Tienda.porcentaje3 = por3;
+				Tienda.porcentaje4 = por4;
+				Tienda.porcentaje5 = por5;
 				this.dispose();	
 			}
 		}

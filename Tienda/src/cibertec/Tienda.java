@@ -64,7 +64,11 @@ public class Tienda extends JFrame implements ActionListener {
 	public static double largo0 = 23.0;
 	public static double espesor0 = 9;
 	public static int cantidadOptima0 = 6;
-
+	
+	public static int totalVentas0 = 0;
+	public static int totalMillares0 = 0;
+	public static double totalVendidos0 = 0;
+	
 	// Ladrillo 1
 	public static String modelo1 = "Ladrillo King Kong Macizo";
 	public static double precio1 = 920.0;
@@ -73,6 +77,10 @@ public class Tienda extends JFrame implements ActionListener {
 	public static double espesor1 = 9.0;
 	public static int cantidadOptima1 = 6;
 
+	public static int totalVentas1 = 0;
+	public static int totalMillares1 = 0;
+	public static double totalVendidos1 = 0;
+	
 	// Ladrillo 2
 	public static String modelo2 = "Ladrillo Pandereta Acanalada";
 	public static double precio2 = 510.0;
@@ -80,6 +88,10 @@ public class Tienda extends JFrame implements ActionListener {
 	public static double largo2 = 23;
 	public static double espesor2 = 9.0;
 	public static int cantidadOptima2 = 6;
+	
+	public static int totalVentas2 = 0;
+	public static int totalMillares2 = 0;
+	public static double totalVendidos2 = 0;
 
 	// Ladrillo 3
 	public static String modelo3 = "Ladrillo Patelero";
@@ -89,6 +101,10 @@ public class Tienda extends JFrame implements ActionListener {
 	public static double espesor3 = 3;
 	public static int cantidadOptima3 = 6;
 
+	public static int totalVentas3 = 0;
+	public static int totalMillares3 = 0;
+	public static double totalVendidos3 = 0;
+	
 	// Ladrillo 4
 	public static String modelo4 = "Ladrillo Techo Hueco";
 	public static double precio4 = 2350.0;
@@ -97,6 +113,10 @@ public class Tienda extends JFrame implements ActionListener {
 	public static double espesor4 = 15.0;
 	public static int cantidadOptima4 = 6;
 
+	public static int totalVentas4 = 0;
+	public static int totalMillares4 = 0;
+	public static double totalVendidos4 = 0;
+	
 	// Descuentos
 	public static double porcentaje1 = 5.0;
 	public static double porcentaje2 = 7.5;
@@ -111,7 +131,10 @@ public class Tienda extends JFrame implements ActionListener {
 	public static int obsequioCantidad3 = 5;
 	public static int obsequioCantidad4 = 7;
 	public static int obsequioCantidad5 = 9;
-
+	
+	//ventas
+	public static double importeTotalAcumulado = 0;
+	
 	/**
 	 * Create the frame.
 	 */
@@ -162,7 +185,7 @@ public class Tienda extends JFrame implements ActionListener {
 		mntmGenerar.setIcon(null);
 		mnVentas.add(mntmGenerar);
 
-		mnConfiguracion = new JMenu("Configuraci�n");
+		mnConfiguracion = new JMenu("Configuración");
 		menuBar.add(mnConfiguracion);
 
 		mntmDescuentos = new JMenuItem("Configurar descuentos");
@@ -226,7 +249,7 @@ public class Tienda extends JFrame implements ActionListener {
 
 	// Mantenimiento
 	protected void actionPerformedMntmConsultar(ActionEvent e) {
-		// Declarar VARIABLE REFERENCIA que permita controlar la caja de diálogo
+		// Declarar VARIABLE REFERENCIA que permita controlar la caja de diÃ¡logo
 		DialogoConsultar d;
 
 		// Crear la caja de dialogo en la VARIABLE REFERENCIA
@@ -265,7 +288,7 @@ public class Tienda extends JFrame implements ActionListener {
 		d.setVisible(true);
 	}
 
-	// Configuraci�n
+	// Configuración
 	protected void actionPerformedMntmDescuentos(ActionEvent e) {
 		configDescuento d = new configDescuento();
 		d.setLocationRelativeTo(this);

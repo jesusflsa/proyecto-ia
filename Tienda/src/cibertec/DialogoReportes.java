@@ -123,38 +123,38 @@ public void tipoIndex(int i) {
 } 
 //imprimir ventas modelo
 public void imprimirVentasModelo() { 
-	double porcent0 = (Tienda.totalVendidos0 * Tienda.importeTotalAcumulado) / 100;  
-	double porcent1 = (Tienda.totalVendidos1 * Tienda.importeTotalAcumulado) / 100;  
-	double porcent2 = (Tienda.totalVendidos2 * Tienda.importeTotalAcumulado) / 100;  
-	double porcent3 = (Tienda.totalVendidos3 * Tienda.importeTotalAcumulado) / 100;  
-	double porcent4 = (Tienda.totalVendidos4 * Tienda.importeTotalAcumulado) / 100;  
+	double porcent0 = (Tienda.totalVendidos0 * 100) / Tienda.importeTotalAcumulado;  
+	double porcent1 = (Tienda.totalVendidos1 * 100) / Tienda.importeTotalAcumulado;  
+	double porcent2 = (Tienda.totalVendidos2 * 100) / Tienda.importeTotalAcumulado;  
+	double porcent3 = (Tienda.totalVendidos3 * 100) / Tienda.importeTotalAcumulado;  
+	double porcent4 = (Tienda.totalVendidos4 * 100) / Tienda.importeTotalAcumulado;  
 
 	
 	txtS.setText(""); 
 	txtS.append("Modelo:.............................. " + Tienda.modelo0 + "\n"); 
 	txtS.append("Cantidad de ventas:.................. " + Tienda.totalVentas0 + "\n"); 
 	txtS.append("Cantidad de millares vendidos:....... " + Tienda.totalMillares0 + "\n"); 
-	txtS.append("Importe total acumulado:............. " + Tienda.totalVendidos0 + "(" + porcent0 + " del total general)" + "\n" + "\n"); 
+	txtS.append("Importe total acumulado:............. " + Tienda.totalVendidos0 + "(" + String.format("%.2f", porcent0) + "% del total general)" + "\n" + "\n"); 
  
 	txtS.append("Modelo:.............................. " + Tienda.modelo1 + "\n"); 
 	txtS.append("Cantidad de ventas:.................. " + Tienda.totalVentas1 + "\n"); 
 	txtS.append("Cantidad de millares vendidos:....... " + Tienda.totalMillares1 + "\n"); 
-	txtS.append("Importe total acumulado:............. " + Tienda.totalVendidos1 + "(" + porcent1 + " del total general)" + "\n" + "\n"); 
+	txtS.append("Importe total acumulado:............. " + Tienda.totalVendidos1 + "(" + String.format("%.2f", porcent1) + "% del total general)" + "\n" + "\n"); 
 
 	txtS.append("Modelo:.............................. " + Tienda.modelo2 + "\n"); 
 	txtS.append("Cantidad de ventas:.................. " + Tienda.totalVentas2 + "\n"); 
 	txtS.append("Cantidad de millares vendidos:....... " + Tienda.totalMillares2 + "\n"); 
-	txtS.append("Importe total acumulado:............. " + Tienda.totalVendidos2 + "(" + porcent2 + " del total general)" + "\n" + "\n"); 
+	txtS.append("Importe total acumulado:............. " + Tienda.totalVendidos2 + "(" + String.format("%.2f", porcent2) + "% del total general)" + "\n" + "\n"); 
 
 	txtS.append("Modelo:.............................. " + Tienda.modelo3 + "\n"); 
 	txtS.append("Cantidad de ventas:.................. " + Tienda.totalVentas3 + "\n"); 
 	txtS.append("Cantidad de millares vendidos:....... " + Tienda.totalMillares3 + "\n"); 
-	txtS.append("Importe total acumulado:............. " + Tienda.totalVendidos3 + "(" + porcent3 + " del total general)" + "\n" + "\n"); 
+	txtS.append("Importe total acumulado:............. " + Tienda.totalVendidos3 + "(" + String.format("%.2f", porcent3) + "% del total general)" + "\n" + "\n"); 
 
 	txtS.append("Modelo:.............................. " + Tienda.modelo4 + "\n"); 
 	txtS.append("Cantidad de ventas:.................. " + Tienda.totalVentas4 + "\n"); 
 	txtS.append("Cantidad de millares vendidos:....... " + Tienda.totalMillares4 + "\n"); 
-	txtS.append("Importe total acumulado:............. " + Tienda.totalVendidos4 + "(" + porcent4 + " del total general)" + "\n" + "\n"); 
+	txtS.append("Importe total acumulado:............. " + Tienda.totalVendidos4 + "(" + String.format("%.2f", porcent4) + "% del total general)" + "\n" + "\n"); 
 } 
 
 public String promedioCadena(double pre, double pro) {
@@ -211,10 +211,10 @@ public String comparacionCadena(int op, int ven) {
 		return " igual que el promedio";
 	}else if(op > ven) {
 		resta = op - ven;
-		return resta + " mayor que el promedio";
+		return resta + " menor que el promedio";
 	} else {
 		resta = ven - op;
-		return resta + " menor que el promedio";
+		return resta + " mayor que el promedio";
 	}
 }
 
@@ -255,15 +255,19 @@ public void imprimirCantidadOptima() {
 
 public String noVendidoCadena(int ven1, int ven2, int ven3, int ven4, int ven5) {
 	int noVendido = 0;
-	if(ven1 > 0) {
+	if(ven1 == 0) {
 		noVendido++;
-	}else if(ven2 > 0) {
+	}
+	if(ven2 == 0) {
 		noVendido++;
-	}else if(ven3 > 0) {
+	}
+	if(ven3 == 0) {
 		noVendido++;
-	}else if(ven4 > 0) {
+	}
+	if(ven4 == 0) {
 		noVendido++;
-	}else if(ven5 > 0) {
+	}
+	if(ven5 == 0) {
 		noVendido++;
 	}
 	return noVendido + "";

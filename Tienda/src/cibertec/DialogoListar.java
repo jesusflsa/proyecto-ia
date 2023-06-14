@@ -97,7 +97,7 @@ public class DialogoListar extends JDialog implements ActionListener {
 		imprimir("Ancho (cm)                 : " + anc + " cm");
 		imprimir("Largo (cm)                 : " + lar + " cm");
 		imprimir("Espesor (mm)               : " + esp + " mm");
-		imprimir("Cantidad óptima (millares) : " + can);
+		imprimir("Cantidad Ã“ptima (millares) : " + can);
 	}
 	
 	void imprimir(String cad) {

@@ -134,6 +134,7 @@ public class Tienda extends JFrame implements ActionListener {
 	
 	//ventas
 	public static double importeTotalAcumulado = 0;
+	public static int ventasTotales = 0;
 	
 	/**
 	 * Create the frame.

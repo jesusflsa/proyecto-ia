@@ -90,27 +90,27 @@ public class DialogoModificar extends JDialog implements ActionListener {
 		cboModelo.setBounds(145, 11, 180, 22);
 		getContentPane().add(cboModelo);
 
-		txtPrecio = new JTextField();
+		txtPrecio = new JTextField(calcularPrecio(0)+"");
 		txtPrecio.setColumns(10);
 		txtPrecio.setBounds(145, 37, 180, 20);
 		getContentPane().add(txtPrecio);
 
-		txtAncho = new JTextField();
+		txtAncho = new JTextField(calcularAncho(0)+"");
 		txtAncho.setColumns(10);
 		txtAncho.setBounds(145, 62, 180, 20);
 		getContentPane().add(txtAncho);
 
-		txtLargo = new JTextField();
+		txtLargo = new JTextField(calcularLargo(0) + "");
 		txtLargo.setColumns(10);
 		txtLargo.setBounds(145, 87, 180, 20);
 		getContentPane().add(txtLargo);
 
-		txtEspesor = new JTextField();
+		txtEspesor = new JTextField(calcularEspesor(0) + "");
 		txtEspesor.setColumns(10);
 		txtEspesor.setBounds(145, 112, 180, 20);
 		getContentPane().add(txtEspesor);
 
-		txtCanOptima = new JTextField();
+		txtCanOptima = new JTextField(calcularCantidadOptima(0) + "");
 		txtCanOptima.setColumns(10);
 		txtCanOptima.setBounds(145, 137, 180, 20);
 		getContentPane().add(txtCanOptima);
@@ -125,8 +125,6 @@ public class DialogoModificar extends JDialog implements ActionListener {
 		btnGrabar.setBounds(335, 36, 89, 23);
 		getContentPane().add(btnGrabar);
 
-		mostrarDatos(calcularPrecio(0), calcularAncho(0), calcularLargo(0), calcularEspesor(0),
-				calcularCantidadOptima(0));
 	}
 
 	public void actionPerformed(ActionEvent e) {

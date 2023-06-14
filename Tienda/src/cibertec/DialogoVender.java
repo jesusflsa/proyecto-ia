@@ -108,6 +108,7 @@ public class DialogoVender extends JDialog implements ActionListener {
 		getContentPane().add(scrollPane);
 
 		txtS = new JTextArea();
+		txtS.setEditable(false);
 		scrollPane.setViewportView(txtS);
 
 		txtPrecio.setText(obtenerPrecio(0) + "");

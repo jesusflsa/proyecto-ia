@@ -78,7 +78,7 @@ public class DialogoModificar extends JDialog implements ActionListener {
 		lblEspesor.setBounds(15, 115, 120, 14);
 		getContentPane().add(lblEspesor);
 
-		lblCanOptima = new JLabel("Can. �ptima (millares)");
+		lblCanOptima = new JLabel("Can. Óptima (millares)");
 		lblCanOptima.setBounds(15, 140, 120, 14);
 		getContentPane().add(lblCanOptima);
 

@@ -132,6 +132,7 @@ public class configObsequio extends JDialog implements ActionListener {
 		getContentPane().add(btnAceptar);
 		
 		btnCancelar = new JButton("cancelar");
+		btnCancelar.addActionListener(this);
 		btnCancelar.setBounds(323, 32, 89, 23);
 		getContentPane().add(btnCancelar);
 		
@@ -152,24 +153,29 @@ public class configObsequio extends JDialog implements ActionListener {
 		cambiarValor();
 	}
 	protected void cambiarValor() {
+		int val1, val2, val3, val4, val5;
 		String  por1, por2, por3, por4, por5;
 		por1 =  textObs1.getText();
 		por2 =	textObs2.getText();
 		por3 = 	textObs3.getText();
 		por4 = 	textObs4.getText();
 		por5 =	textObs5.getText();
-		System.out.print(textObs1.getText());
 		if(por1.length() == 0 || por2.length() == 0 || por3.length() == 0|| por4.length() == 0|| por5.length() == 0){
 			JOptionPane.showMessageDialog(this, "Rellene el espacio");
 		}else{
-			Tienda.obsequioCantidad1 = Integer.parseInt(por1);
-			Tienda.obsequioCantidad2= Integer.parseInt(por2);
-			Tienda.obsequioCantidad3 = Integer.parseInt(por3);
-			Tienda.obsequioCantidad4 = Integer.parseInt(por4);
-			Tienda.obsequioCantidad5 = Integer.parseInt(por5);
-			if(Tienda.obsequioCantidad1 < 0 || Tienda.obsequioCantidad2 < 0 ||Tienda.obsequioCantidad3 < 0 ||Tienda.obsequioCantidad4 < 0 ||Tienda.obsequioCantidad5 < 0){
+			val1 = Integer.parseInt(por1);
+			val2 = Integer.parseInt(por2);
+			val3 = Integer.parseInt(por3);
+			val4 = Integer.parseInt(por4);
+			val5 = Integer.parseInt(por5);
+			if(val1 < 0 || val2 < 0 ||val3 < 0 ||val4 < 0 ||val5 < 0){
 				JOptionPane.showMessageDialog(this, "Rellene con un numero mayor a 0");
 			}else{
+				Tienda.obsequioCantidad1 = Integer.parseInt(por1);
+				Tienda.obsequioCantidad2= Integer.parseInt(por2);
+				Tienda.obsequioCantidad3 = Integer.parseInt(por3);
+				Tienda.obsequioCantidad4 = Integer.parseInt(por4);
+				Tienda.obsequioCantidad5 = Integer.parseInt(por5);
 				this.dispose();	
 			}
 		}

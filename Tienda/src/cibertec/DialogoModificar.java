@@ -300,7 +300,7 @@ public class DialogoModificar extends JDialog implements ActionListener {
 			can = Integer.parseInt(txtCanOptima.getText());
 
 			if (pre < 0 || anc < 0 || lar < 0 || esp < 0 || can < 0) {
-				JOptionPane.showMessageDialog(this, "Los valores deben ser mayor a 0", "Valores negativos", 1);
+				JOptionPane.showMessageDialog(this, "Los valores deben ser mayor a 0", "Valores negativos", 2);
 			} else {
 				if (calcularPrecio(mar) != pre) {
 

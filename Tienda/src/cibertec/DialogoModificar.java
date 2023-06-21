@@ -439,7 +439,7 @@ public class DialogoModificar extends JDialog implements ActionListener {
 	}
 
 	String mensajeCantidad(double ca, double cn) {
-		return "Can.�ptima: \n" + ca + " a " + cn + "\n" + "\n";
+		return "Can.Óptima: \n" + ca + " a " + cn + "\n" + "\n";
 	}
 
 	void mostrarResultados(String cad) {

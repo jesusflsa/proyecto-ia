@@ -121,13 +121,28 @@ public void tipoIndex(int i) {
 			break;
 	} 
 } 
+
 //imprimir ventas modelo
 public void imprimirVentasModelo() { 
-	double porcent0 = (Tienda.totalVendidos0 * 100) / Tienda.importeTotalAcumulado;  
-	double porcent1 = (Tienda.totalVendidos1 * 100) / Tienda.importeTotalAcumulado;  
-	double porcent2 = (Tienda.totalVendidos2 * 100) / Tienda.importeTotalAcumulado;  
-	double porcent3 = (Tienda.totalVendidos3 * 100) / Tienda.importeTotalAcumulado;  
-	double porcent4 = (Tienda.totalVendidos4 * 100) / Tienda.importeTotalAcumulado;  
+	double porcent0 = 0;  
+	double porcent1 = 0;  
+	double porcent2 = 0;  
+	double porcent3 = 0;
+	double porcent4 = 0;
+	
+	if(Tienda.importeTotalAcumulado == 0) {
+		porcent0 = 0;
+		porcent1 = 0;
+		porcent2 = 0;
+		porcent3 = 0;
+		porcent4 = 0;
+	}else { 
+		porcent0 = (Tienda.totalVendidos0 * 100) / Tienda.importeTotalAcumulado;  
+		porcent1 = (Tienda.totalVendidos1 * 100) / Tienda.importeTotalAcumulado;  
+		porcent2 = (Tienda.totalVendidos2 * 100) / Tienda.importeTotalAcumulado;  
+		porcent3 = (Tienda.totalVendidos3 * 100) / Tienda.importeTotalAcumulado;  
+		porcent4 = (Tienda.totalVendidos4 * 100) / Tienda.importeTotalAcumulado;  
+	}
 
 	
 	txtS.setText(""); 
@@ -280,8 +295,48 @@ public void estadisticaPrecio() {
 	
 	txtS.setText(""); 
 	txtS.append("Precio promedio:...................... " + prome + "\n");
-	txtS.append("Precio mayor:......................... " + Tienda.precio4 + "\n"); 
-	txtS.append("Precio menor:......................... " + Tienda.precio2 + "\n"); 
+	txtS.append("Precio mayor:......................... " + numeroMayor() + "\n"); 
+	txtS.append("Precio menor:......................... " + numeroMenor() + "\n"); 
 	txtS.append("Cantidad de modelos no vendidos:...... " + cant + "\n" + "\n"); 
 	} 
-} 
+public double numeroMayor() {
+	double numero1 = Tienda.precio0;
+	double numero2 = Tienda.precio1;
+	double numero3 = Tienda.precio2;
+	double numero4 = Tienda.precio3;
+	double numero5 = Tienda.precio4;
+			if(numero1 > numero2) {
+				numero2 = numero1; 
+			}
+			if(numero2 > numero3) {
+				numero3 = numero2; 
+			}
+			if(numero3 > numero4) {
+				numero4 = numero3; 
+			}
+			if(numero4 > numero5) {
+				numero5 = numero4; 
+			}
+	return numero5;
+	}
+public double numeroMenor() {
+	double numero1 = Tienda.precio0;
+	double numero2 = Tienda.precio1;
+	double numero3 = Tienda.precio2;
+	double numero4 = Tienda.precio3;
+	double numero5 = Tienda.precio4;
+			if(numero1 < numero2) {
+				numero2 = numero1; 
+			}
+			if(numero2 < numero3) {
+				numero3 = numero2; 
+			}
+			if(numero3 < numero4) {
+				numero4 = numero3; 
+			}
+			if(numero4 < numero5) {
+				numero5 = numero4; 
+			}
+	return numero5;
+	}
+}  

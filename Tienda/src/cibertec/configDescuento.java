@@ -177,14 +177,21 @@ public class configDescuento extends JDialog implements ActionListener {
 			por3 = 	Double.parseDouble(val3);
 			por4 = 	Double.parseDouble(val4);
 			por5 =	Double.parseDouble(val5);
-			if(por1 < 0 || por2 < 0 || por3 < 0 || por4 < 0 || por5 < 0){
-				JOptionPane.showMessageDialog(this, "Rellene con un numero mayor a 0");
-			}else{
+			if(por1 < 0 || por2 < 0 || por3 < 0 || por4 < 0 || por5 < 0)
+			{
+				JOptionPane.showMessageDialog(this, "Rellene con un numero mayor a 0", "Valor no permitido", 0);
+			}
+			else if(por1 > 100 || por2 > 100 || por3 > 100 || por4 > 100 || por5 > 100) 
+			{
+				JOptionPane.showMessageDialog(this, "Ningun valor puede ser mayor a 100%", "Valor no permitido", 0);
+			}
+			else{
 				Tienda.porcentaje1 = por1;
 				Tienda.porcentaje2 = por2;
 				Tienda.porcentaje3 = por3;
 				Tienda.porcentaje4 = por4;
 				Tienda.porcentaje5 = por5;
+				JOptionPane.showMessageDialog(this, "Cambios hechos correctamente", "Valores modificados", 1);
 				this.dispose();	
 			}
 		}

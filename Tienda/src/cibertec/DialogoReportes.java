@@ -78,6 +78,7 @@ public DialogoReportes() {
 	getContentPane().add(scrollPane); 
 
 	txtS = new JTextArea(); 
+	txtS.setEditable(false);
 	scrollPane.setViewportView(txtS); 
 } 
 

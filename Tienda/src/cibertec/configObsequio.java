@@ -63,7 +63,7 @@ public class configObsequio extends JDialog implements ActionListener {
 	public configObsequio() {
 		setModal(true);
 		setTitle("Configurar obsequio");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 438, 200);
 		getContentPane().setLayout(null);
 		
 		lblNewLabel = new JLabel("Tipo de obsequio ");
@@ -132,6 +132,7 @@ public class configObsequio extends JDialog implements ActionListener {
 		getContentPane().add(btnAceptar);
 		
 		btnCancelar = new JButton("cancelar");
+		btnCancelar.addActionListener(this);
 		btnCancelar.setBounds(323, 32, 89, 23);
 		getContentPane().add(btnCancelar);
 		
@@ -158,7 +159,6 @@ public class configObsequio extends JDialog implements ActionListener {
 		por3 = 	textObs3.getText();
 		por4 = 	textObs4.getText();
 		por5 =	textObs5.getText();
-		System.out.print(textObs1.getText());
 		if(por1.length() == 0 || por2.length() == 0 || por3.length() == 0|| por4.length() == 0|| por5.length() == 0){
 			JOptionPane.showMessageDialog(this, "Rellene el espacio");
 		}else{
@@ -170,6 +170,7 @@ public class configObsequio extends JDialog implements ActionListener {
 			if(Tienda.obsequioCantidad1 < 0 || Tienda.obsequioCantidad2 < 0 ||Tienda.obsequioCantidad3 < 0 ||Tienda.obsequioCantidad4 < 0 ||Tienda.obsequioCantidad5 < 0){
 				JOptionPane.showMessageDialog(this, "Rellene con un numero mayor a 0");
 			}else{
+				JOptionPane.showMessageDialog(this, "Cambios hechos correctamente!");
 				this.dispose();	
 			}
 		}

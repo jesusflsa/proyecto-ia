@@ -77,6 +77,7 @@ Este proyecto fue creado en Java, utilizando Eclise IDE, Java Swing y WindowBuil
         ![Estadística general](screenshots/reportes-estadistica.jpg)
     
 **Configuración:** Accedemos a las opciones de Configurar descuentos y configurar obsequio
+
 ![Configuración](screenshots/configurar.jpg)
 
 - **Configurar descuentos:** Despliega un cuadro de diálogo en el que se pueden configurar los porcentajes de descuento en base a la cantidad vendida.

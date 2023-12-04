@@ -74,7 +74,7 @@ Este proyecto fue creado en Java, utilizando Eclise IDE, Java Swing y WindowBuil
     
     - **Estadística general:** Imprime las estadísticas generales: Precio promedio, precio mayor, precio menor y la cantidad ded modelos no vendidos.
     
-        ![Estadística general](screenshot/reportes-estadistica.jpg)
+        ![Estadística general](screenshots/reportes-estadistica.jpg)
     
 **Configuración:** Accedemos a las opciones de Configurar descuentos y configurar obsequio
 ![Configuración](screenshots/configurar.jpg)
